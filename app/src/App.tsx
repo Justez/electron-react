@@ -3,11 +3,11 @@ import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import { blueGrey } from '@material-ui/core/colors';
 import { CssBaseline } from '@material-ui/core';
 
-import MainPage from './pages/main';
-import Navigation from './functional-components/navigation';
-import Footer from './functional-components/footer';
-import ContentWrapper from './functional-components/content-wrapper';
-import { ElementType } from './types';
+import MainPage from 'pages/main';
+import Navigation from 'functional-components/navigation';
+import Footer from 'functional-components/footer';
+import ContentWrapper from 'functional-components/content-wrapper';
+import { ElementType } from 'types';
 
 const lightNaviBackground = blueGrey['A200'];
 const darkNaviBackground = blueGrey['900'];

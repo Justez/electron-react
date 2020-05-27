@@ -2,8 +2,8 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { AppBar, Grid } from '@material-ui/core';
 
-import type { ElementType } from '../../types';
-import BackToTop from '../../components/back-to-top-button';
+import type { ElementType } from 'types';
+import BackToTop from 'components/back-to-top-button';
 
 const useStyles = makeStyles((theme) => ({
   root: {

@@ -1,7 +1,7 @@
 import React from 'react';
 // import { Button, Grid } from '@material-ui/core'
 // import { Formik, Form, } from 'formik';
-// import InputField from '../../components/input-field'
+// import InputField from 'components/input-field'
 
 const SearchFormTemplate = () => {
     return (

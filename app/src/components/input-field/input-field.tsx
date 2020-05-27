@@ -2,7 +2,7 @@ import React from 'react';
 import { TextField } from '@material-ui/core'
 import { Field, ErrorMessage } from 'formik';
 
-import type { ElementType } from '../../types';
+import type { ElementType } from 'types';
 
 type Props = {
   name: string, 

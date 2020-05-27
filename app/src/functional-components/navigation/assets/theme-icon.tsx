@@ -1,6 +1,6 @@
 import React from 'react';
 
-import type { ElementType } from '../../../types';
+import type { ElementType } from 'types';
 
 const ThemeIcon = (): ElementType => {
   return (
