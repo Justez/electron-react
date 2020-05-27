@@ -1,0 +1,21 @@
+{
+  "name": "er-spa-app",
+  "version": "1.0.0",
+  "description": "Electron + React SPA playground",
+  "main": "electron-main.js",
+  "homepage": "app",
+  "scripts": {
+    "start": "cd app && yarn start",
+    "test-watch": "cd app && yarn test-watch",
+    "start-dev": "concurrently \"BROWSER=none yarn start\" \"wait-on http://localhost:3000 && electron .\" \"yarn test-watch\"",
+    "install": "yarn && cd app && yarn"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "concurrently": "5.2.0",
+    "electron": "9.0.0",
+    "wait-on": "5.0.0"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "short_name": "ERApp",
+  "name": "Sample electron + react app",
+  "start_url": ".",
+  "display": "standalone",
+  "scope": "/"
+}
