@@ -1,10 +1,12 @@
 import { combineReducers } from 'redux';
 
 import domManipulation from 'store/modules/dom-manipulation/reducer';
+import polynomSettings from 'store/modules/polynom-settings/reducer';
 
 const appReducer = () =>
   combineReducers({
     dom: domManipulation,
+    polynomSettings,
   });
 
 type AppReducer = typeof appReducer;

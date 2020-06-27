@@ -1,10 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Grid, TextField } from '@material-ui/core';
+import { bindActionCreators, Dispatch } from 'redux';
 
-import { DOMDetails } from 'types';
+import { DOMSettings, PolynomSettings } from 'types';
 import { State } from 'store';
 import { getRootID } from 'store/modules/dom-manipulation/selectors';
+import { getPolynomSettings } from 'store/modules/polynom-settings/selectors';
+import { actions as polynomSettingsActions } from 'store/modules/polynom-settings';
 
 // call applyBrotGrid on first render, on provided id
 // start calculating brot
@@ -15,10 +18,22 @@ import { getRootID } from 'store/modules/dom-manipulation/selectors';
 // call next calculation after set interval
 
 interface StateProps {
-    rootID: DOMDetails['rootID'];
+    rootID: DOMSettings['rootID'];
+    polynomSettings: PolynomSettings;
 }
 
-const Brot = ({ rootID }: StateProps) => {
+interface DispatchProps {
+    actions: {
+      polynomSettings: typeof polynomSettingsActions;
+    };
+  }
+
+type Props = StateProps & DispatchProps
+
+const Brot = ({ rootID, polynomSettings, actions }: Props) => {
+    const updateCalculationLimit = (v: any) => actions.polynomSettings.updateCalculationLimit(v.target.value)
+    const updateInterval = (v: any) => actions.polynomSettings.updateInterval(v.target.value)
+    
     return (
         <>
             <Grid container justify="flex-end" spacing={3}>
@@ -27,9 +42,8 @@ const Brot = ({ rootID }: StateProps) => {
                         id="limit"
                         label="Limit of calculations"
                         type="number"
-                        defaultValue={1000}
-                        onChange={(v) => { }}
-                        disabled
+                        value={polynomSettings?.calcLimit}
+                        onChange={updateCalculationLimit}
                         inputProps={{ max: 1000 }}
                     />
                 </Grid>
@@ -38,10 +52,9 @@ const Brot = ({ rootID }: StateProps) => {
                         id="interval"
                         label="Recalculate every (ms)"
                         type="number"
-                        defaultValue={3000}
-                        onChange={(v) => { }}
-                        disabled
-                        inputProps={{ min: 1000 }}
+                        value={polynomSettings?.interval}
+                        onChange={updateInterval}
+                        inputProps={{ min: 3000 }}
                     />
                 </Grid>
             </Grid>
@@ -52,6 +65,13 @@ const Brot = ({ rootID }: StateProps) => {
 
 const mapStateToProps = (state: State): StateProps => ({
     rootID: getRootID(state),
+    polynomSettings: getPolynomSettings(state),
 });
 
-export default connect(mapStateToProps)(Brot);
+const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => ({
+    actions: {
+        polynomSettings: bindActionCreators(polynomSettingsActions, dispatch),
+    },
+  });
+
+export default connect(mapStateToProps, mapDispatchToProps)(Brot);
