@@ -5,16 +5,14 @@ import { CssBaseline } from '@material-ui/core';
 
 import MainPage from 'pages/main';
 import Navigation from 'functional-components/navigation';
-import Footer from 'functional-components/footer';
 import ContentWrapper from 'functional-components/content-wrapper';
-import { ElementType } from 'types';
 
 const lightNaviBackground = blueGrey['A200'];
 const darkNaviBackground = blueGrey['900'];
 const lightBodyBackground = blueGrey[50];
 const darkBodyBackground = blueGrey['800'];
 
-const App = (): ElementType => {
+const App = () => {
   const [themeDark, setThemeDark] = useState(false);
 
   const handleThemeChange = useCallback(() => {
@@ -38,9 +36,6 @@ const App = (): ElementType => {
             overflowX: 'hidden',
             overflowY: 'auto',
           },
-          footer: {
-            minHeight: '5vh',
-          },
         },
       },
     },
@@ -53,7 +48,6 @@ const App = (): ElementType => {
       <ContentWrapper>
         <MainPage />
       </ContentWrapper>
-      <Footer />
     </ThemeProvider>
   );
 };

@@ -12,7 +12,6 @@ import {
 
 import MenuIcon from './assets/menu-icon';
 import ThemeIcon from './assets/theme-icon';
-import { ElementType } from 'types';
 
 interface Props {
   onChangeTheme: () => void;
@@ -42,7 +41,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Navigation = ({ onChangeTheme }: Props): ElementType => {
+const Navigation = ({ onChangeTheme }: Props) => {
   const classes = useStyles();
 
   return (

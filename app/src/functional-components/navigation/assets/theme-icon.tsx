@@ -1,8 +1,6 @@
 import React from 'react';
 
-import type { ElementType } from 'types';
-
-const ThemeIcon = (): ElementType => {
+const ThemeIcon = () => {
   return (
     <path
       d={

@@ -2,8 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Button, Grid, SvgIcon } from '@material-ui/core';
 
-import type { ElementType } from 'types';
-
 const useStyles = makeStyles((theme) => ({
   root: {
     position: 'fixed',
@@ -26,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const BackToTop = (): ElementType => {
+const BackToTop = () => {
   const classes = useStyles();
   const [showButton, setShowButton] = useState(false);
 

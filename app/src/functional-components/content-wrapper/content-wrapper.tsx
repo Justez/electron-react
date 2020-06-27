@@ -15,11 +15,11 @@ const ContentWrapper = ({
   children,
 }: {
   children: ElementType;
-}): ElementType => {
+}) => {
   const classes = useStyles();
 
   return (
-    <Box minHeight="86vh" className={classes.root} p={2}>
+    <Box className={classes.root} p={2}>
       {children}
     </Box>
   );
