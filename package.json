@@ -11,7 +11,8 @@
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {},
+  "dependencies": {
+  },
   "devDependencies": {
     "concurrently": "5.2.0",
     "electron": "9.0.0",
