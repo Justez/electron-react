@@ -10,6 +10,7 @@ export type DefaultState = PolynomSettings;
 export const defaultState: DefaultState = {
     calcLimit: 100,
     interval: 3000,
+    activated: false
 };
 
 type Payload = any;
@@ -21,6 +22,8 @@ const reducer = handleActions<DefaultState, Payload>({
         assocPath(['interval'], payload, state),
     [actions.updateCalculationLimit.toString()]: (state, { payload }) =>
         assocPath(['calcLimit'], payload, state),
+    [actions.updateStatus.toString()]: (state, { payload }) =>
+        assocPath(['activated'], payload ? payload : !state.activated, state),
 },
     defaultState,
 );

@@ -1,4 +1,3 @@
-export interface PolynomSettings {
-    calcLimit: number;
-    interval: number;
+export interface PolynomData {
+    calcCount: number;
 }

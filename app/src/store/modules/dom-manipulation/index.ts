@@ -1,8 +1,8 @@
-import { createActions } from 'redux-actions';
+// import { createActions } from 'redux-actions';
 
 export const NAMESPACE = 'dom';
 
-export const actions = createActions(
-  '',
-  { prefix: NAMESPACE },
-);
+// export const actions = createActions(
+//   '',
+//   { prefix: NAMESPACE },
+// );
