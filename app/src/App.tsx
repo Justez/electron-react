@@ -2,10 +2,12 @@ import React, { useState, useCallback } from 'react';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import { blueGrey } from '@material-ui/core/colors';
 import { CssBaseline } from '@material-ui/core';
+import { Provider } from 'react-redux';
 
 import MainPage from 'pages/main';
 import Navigation from 'functional-components/navigation';
 import ContentWrapper from 'functional-components/content-wrapper';
+import store from 'store';
 
 const lightNaviBackground = blueGrey['A200'];
 const darkNaviBackground = blueGrey['900'];
@@ -42,13 +44,15 @@ const App = () => {
   });
 
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <Navigation onChangeTheme={handleThemeChange} />
-      <ContentWrapper>
-        <MainPage />
-      </ContentWrapper>
-    </ThemeProvider>
+    <Provider store={store}>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <Navigation onChangeTheme={handleThemeChange} />
+        <ContentWrapper>
+          <MainPage />
+        </ContentWrapper>
+      </ThemeProvider>
+    </Provider>
   );
 };
 

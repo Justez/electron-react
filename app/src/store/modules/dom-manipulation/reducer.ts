@@ -1,14 +1,14 @@
 import { handleActions } from 'redux-actions';
-import { assocPath } from 'ramda';
+// import { assocPath } from 'ramda';
 
 import { DOMDetails } from 'types';
 
-import { actions } from '.';
+// import { actions } from '.';
 
 export type DefaultState = DOMDetails;
 
 export const defaultState: DefaultState = {
-    rootID: '',
+    rootID: 'root-polynom',
 };
 
 type Payload = any;
@@ -16,8 +16,8 @@ type Payload = any;
 export const initializedState = {};
 
 const reducer = handleActions<DefaultState, Payload>({
-    [actions.setRootID.toString()]: (state, { payload }) =>
-        assocPath(['rootID'], payload, state),
+    // [actions.setRootId.toString()]: (state, { payload }) =>
+    //     assocPath(['rootID'], payload, state),
 },
     defaultState,
 );

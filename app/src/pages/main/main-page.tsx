@@ -1,17 +1,15 @@
 import React from 'react';
 import { Typography } from '@material-ui/core';
 
-import Brot from 'functional-components/brot-template';
+import Polynom from 'functional-components/polynom-template';
 
-const MainPage = () => {
-  return (
-    <>
-      <Typography variant="subtitle1">
-        Electron + React App template
-      </Typography>
-      <Brot />
-    </>
-  )
-};
+const MainPage = () => (
+  <>
+    <Typography variant="subtitle1">
+      Electron + React App template
+    </Typography>
+    <Polynom />
+  </>
+);
 
 export default MainPage;

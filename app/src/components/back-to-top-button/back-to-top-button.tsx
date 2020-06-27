@@ -34,22 +34,22 @@ const BackToTop = () => {
     );
   }, []);
 
-  return showButton ? (
-    <Grid item className={classes.root}>
-      <Button
-        className={classes.toTopIcon}
-        disableFocusRipple
-        disableRipple
-        disableTouchRipple
-      >
-        <SvgIcon>
-          <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path>
-        </SvgIcon>
-      </Button>
-    </Grid>
-  ) : (
-    <></>
-  );
+  return (<>
+    {showButton &&
+      <Grid item className={classes.root}>
+        <Button
+          className={classes.toTopIcon}
+          disableFocusRipple
+          disableRipple
+          disableTouchRipple
+        >
+          <SvgIcon>
+            <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path>
+          </SvgIcon>
+        </Button>
+      </Grid>
+    }
+  </>);
 };
 
 export default BackToTop;
