@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from 'react';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
-import { blueGrey } from '@material-ui/core/colors';
+import { blueGrey, common } from '@material-ui/core/colors';
 import { CssBaseline } from '@material-ui/core';
 import { Provider } from 'react-redux';
 
@@ -37,6 +37,11 @@ const App = () => {
           body: {
             overflowX: 'hidden',
             overflowY: 'auto',
+          },
+          canvas: {
+            width: '100%',
+            minHeight: '55vh',
+            backgroundColor: themeDark ? common.black : darkNaviBackground
           },
         },
       },

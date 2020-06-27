@@ -8,14 +8,11 @@ const useStyles = makeStyles((theme) => ({
   root: {
     color: theme.palette.primary.contrastText,
     backgroundColor: theme.palette.primary.light,
+    minHeight: '94.3vh'
   },
 }));
 
-const ContentWrapper = ({
-  children,
-}: {
-  children: ElementType;
-}) => {
+const ContentWrapper = ({ children, }: { children: ElementType; }) => {
   const classes = useStyles();
 
   return (

@@ -6,5 +6,6 @@ export const actions = createActions(
   'UPDATE_INTERVAL',
   'UPDATE_CALCULATION_LIMIT',
   'UPDATE_STATUS',
+  'UPDATE_ZOOM',
   { prefix: NAMESPACE },
 );

@@ -10,6 +10,9 @@ export type DefaultState = PolynomSettings;
 export const defaultState: DefaultState = {
     calcLimit: 100,
     interval: 3000,
+    zoom: 40,
+    panX: 4,
+    panY: 1.9,
     activated: false
 };
 

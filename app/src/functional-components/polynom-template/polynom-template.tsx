@@ -25,7 +25,7 @@ const useStyles = makeStyles(theme => ({
     button: {
         margin: theme.spacing(1, 0),
         width: '5rem'
-    }
+    },
 }));
 
 interface StateProps {
@@ -76,6 +76,7 @@ const Brot = ({ rootID, polynomSettings, actions }: Props) => {
                 </Button>
             </Box>
             <div id={rootID}></div>
+            {/* 'freeze, download as png, continue' bottom panel */}
         </>
     )
 };
