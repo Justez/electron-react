@@ -1,14 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { Box, Button, TextField, Typography } from '@material-ui/core';
 import { bindActionCreators, Dispatch } from 'redux';
 import { makeStyles } from '@material-ui/core/styles';
 import { fade } from '@material-ui/core/styles/colorManipulator';
 
-import { DOMSettings, PolynomSettings } from 'types';
+import { DOMSettings, PolynomSettings, PolynomData } from 'types';
 import { State } from 'store';
 import { getRootID } from 'store/modules/dom-manipulation/selectors';
 import { getPolynomSettings } from 'store/modules/polynom-settings/selectors';
+import { getCalculationCount } from 'store/modules/polynom/selectors';
 import { actions as polynomSettingsActions } from 'store/modules/polynom-settings';
 
 const useStyles = makeStyles(theme => ({
@@ -31,6 +32,7 @@ const useStyles = makeStyles(theme => ({
 interface StateProps {
     rootID: DOMSettings['rootID'];
     polynomSettings: PolynomSettings;
+    calcCount: PolynomData['calcCount'];
 }
 
 interface DispatchProps {
@@ -41,42 +43,83 @@ interface DispatchProps {
 
 type Props = StateProps & DispatchProps
 
-const Brot = ({ rootID, polynomSettings, actions }: Props) => {
+const Brot = ({ rootID, polynomSettings, actions, calcCount }: Props) => {
     const classes = useStyles();
-    const updateCalculationLimit = (v: any) => actions.polynomSettings.updateCalculationLimit(v.target.value)
-    const updateInterval = (v: any) => actions.polynomSettings.updateInterval(v.target.value)
-    const updateStatus = () => actions.polynomSettings.updateStatus()
+    const [dirty, setDirty] = useState(false);
+
+    const handleDirty = () => !dirty && setDirty(true)
+    const updateStatus = () => {
+        setDirty(false); 
+        actions.polynomSettings.updateStatus()
+    }
+    const updateSettings = (v: any) => actions.polynomSettings.updateSettings({ [v.target.id]: +v.target.value });
 
     return (
         <>
-            <Box mr={1} display="flex" flexDirection="row" justifyContent="end">
+            {/* todo: base color select, zoom input, 'refresh' button label if form changed */}
+            {/* bonus: apply calc interval for every calculation level */}
+            {/* 'freeze, download as png, continue' bottom panel */}
+            <Box mr={1} mb={1} display="flex" flexDirection="row" justifyContent="flex-end">
                 <TextField
-                    id="limit"
-                    label="Calculation limit"
+                    id="panX"
+                    label="panX"
                     type="number"
                     className={classes.input}
-                    value={polynomSettings?.calcLimit}
-                    onChange={updateCalculationLimit}
+                    value={polynomSettings?.panX}
+                    onChange={updateSettings}
                     InputLabelProps={{ className: classes.contrast }}
-                    inputProps={{ max: 1000, className: classes.contrast }}
+                    inputProps={{ className: classes.contrast }}
+                    onInput={handleDirty}
+                />
+                <TextField
+                    id="panY"
+                    label="panY"
+                    type="number"
+                    className={classes.input}
+                    value={polynomSettings?.panY}
+                    onChange={updateSettings}
+                    InputLabelProps={{ className: classes.contrast }}
+                    inputProps={{ className: classes.contrast }}
+                    onInput={handleDirty}
+                />
+                <TextField
+                    id="levels"
+                    label="Depth"
+                    type="number"
+                    className={classes.input}
+                    value={polynomSettings?.levels}
+                    onChange={updateSettings}
+                    InputLabelProps={{ className: classes.contrast }}
+                    inputProps={{ className: classes.contrast }}
+                    onInput={handleDirty}
+                />
+                <TextField
+                    id="zoom"
+                    label="Zoom"
+                    type="number"
+                    className={classes.input}
+                    value={polynomSettings?.zoom}
+                    onChange={updateSettings}
+                    InputLabelProps={{ className: classes.contrast }}
+                    inputProps={{ className: classes.contrast }}
+                    onInput={handleDirty}
                 />
                 <TextField
                     id="interval"
                     label="Calculation interval"
                     type="number"
                     className={classes.input}
-                    onChange={updateInterval}
+                    onChange={updateSettings}
                     value={polynomSettings?.interval}
                     InputLabelProps={{ className: classes.contrast, style: { display: 'ruby' } }}
                     InputProps={{ endAdornment: <Typography className={classes.adorment}>ms</Typography> }}
-                    inputProps={{ min: 3000, className: classes.contrast }}
+                    inputProps={{ className: classes.contrast }}
                 />
-                <Button className={classes.button} onClick={updateStatus} variant="contained" color="secondary">
-                    {polynomSettings.activated ? 'stop' : 'start'}
+                <Button className={classes.button} disabled={!dirty && !!calcCount} onClick={updateStatus} variant="contained" color="secondary">
+                    {dirty && calcCount ? 'update' : 'show'}
                 </Button>
             </Box>
-            <div id={rootID}></div>
-            {/* 'freeze, download as png, continue' bottom panel */}
+            <Box p={0} mr={1} id={rootID}></Box>
         </>
     )
 };
@@ -84,6 +127,7 @@ const Brot = ({ rootID, polynomSettings, actions }: Props) => {
 const mapStateToProps = (state: State): StateProps => ({
     rootID: getRootID(state),
     polynomSettings: getPolynomSettings(state),
+    calcCount: getCalculationCount(state),
 });
 
 const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => ({

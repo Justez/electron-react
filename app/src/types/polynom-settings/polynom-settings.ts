@@ -1,5 +1,5 @@
 export interface PolynomSettings {
-    calcLimit: number;
+    levels: number;
     interval: number;
     zoom: number;
     panX: number;

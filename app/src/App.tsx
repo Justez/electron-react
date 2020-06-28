@@ -15,7 +15,7 @@ const lightBodyBackground = blueGrey[50];
 const darkBodyBackground = blueGrey['800'];
 
 const App = () => {
-  const [themeDark, setThemeDark] = useState(false);
+  const [themeDark, setThemeDark] = useState(true);
 
   const handleThemeChange = useCallback(() => {
     setThemeDark(!themeDark);
@@ -39,8 +39,6 @@ const App = () => {
             overflowY: 'auto',
           },
           canvas: {
-            width: '100%',
-            minHeight: '55vh',
             backgroundColor: themeDark ? common.black : darkNaviBackground
           },
         },

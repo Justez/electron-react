@@ -3,14 +3,14 @@ import { makeStyles } from '@material-ui/core/styles';
 import {
   AppBar,
   Button,
-  IconButton,
+  // IconButton,
   Grid,
   Toolbar,
   Typography,
   SvgIcon,
 } from '@material-ui/core';
 
-import MenuIcon from './assets/menu-icon';
+// import MenuIcon from './assets/menu-icon';
 import ThemeIcon from './assets/theme-icon';
 
 interface Props {
@@ -47,7 +47,7 @@ const Navigation = ({ onChangeTheme }: Props) => {
   return (
     <AppBar position="static">
       <Toolbar>
-        <IconButton
+        {/* <IconButton
           edge="start"
           className={classes.menuButton}
           color="inherit"
@@ -56,9 +56,9 @@ const Navigation = ({ onChangeTheme }: Props) => {
           <SvgIcon>
             <MenuIcon />
           </SvgIcon>
-        </IconButton>
+        </IconButton> */}
         <Typography variant="h6" className={classes.title}>
-          App
+          Mandelbrot calculator
         </Typography>
         <Button
           className={classes.changeThemeButton}
