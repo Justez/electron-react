@@ -8,7 +8,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     color: theme.palette.primary.contrastText,
     backgroundColor: theme.palette.primary.light,
-    minHeight: '94.3vh'
+    minHeight: document.documentElement.clientHeight - 64
   },
 }));
 

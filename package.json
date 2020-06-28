@@ -6,6 +6,7 @@
   "homepage": "app",
   "scripts": {
     "start": "cd app && yarn start",
+    "install:app": "cd app && yarn install",
     "test-watch": "cd app && yarn test-watch",
     "electron-dev": "concurrently \"BROWSER=none yarn start\" \"wait-on http://localhost:3000 && electron .\" \"yarn test-watch\""
   },

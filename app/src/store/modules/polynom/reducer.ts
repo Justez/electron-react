@@ -18,6 +18,8 @@ export const initializedState = {};
 const reducer = handleActions<DefaultState, Payload>({
     [actions.setCanvas.toString()]: (state, { payload }) =>
         assocPath(['canvas'], payload, state),
+    [actions.increaseCalculationCount.toString()]: (state) =>
+        assocPath(['calcCount'], state.calcCount+1, state),
 },
     defaultState,
 );
