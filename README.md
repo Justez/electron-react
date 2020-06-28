@@ -1,6 +1,7 @@
 # Mandelbrot desktop renderer
 
 <img width="900" height="825" src="readme-assets/demo.png">
+
 ## Review locally:
 
 ### Run dev server: 
