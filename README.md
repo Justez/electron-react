@@ -1,6 +1,6 @@
 # Mandelbrot viewer
 
-<img width="600" height="550" src="readme-assets/idle_state.png">
+<img width="600" height="550" src="readme-assets/demo.png">
 
 ## Review locally:
 
@@ -17,5 +17,11 @@
 
 ## Technical stack: 
 
-Typescript, React.JS, redux, redux-sagas, electron.
+Typescript, React.JS, redux, redux-sagas, JavaScript, Electron.
 
+## Screenshots:
+* Dark theme;
+* Light theme + contrastFill; 
+
+<img width="600" height="550" src="readme-assets/standard.png">
+<img width="600" height="550" src="readme-assets/contrast_fill.png">
