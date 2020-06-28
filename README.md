@@ -1,6 +1,6 @@
 # Mandelbrot desktop renderer
 
-<img width="900" height="825" src="readme-assets/demo.png">
+<img width="1200" src="readme-assets/close_up.png">
 
 ## Review locally:
 
@@ -21,10 +21,10 @@ Typescript, React.JS, redux, redux-sagas, JavaScript, Electron.
 
 ## Screenshots:
 * Dark theme;
-* Light theme + contrastFill; 
+* Contrast fill; 
 * Low depth; 
 
-<img width="300" height="225" src="readme-assets/standard.png">   <img width="300" height="225" src="readme-assets/contrast_fill.png">   <img width="300" height="225" src="readme-assets/low_density.png">   
+<img width="300" height="225" src="readme-assets/standard.png">   <img width="300" height="225" src="readme-assets/demo.png">   <img width="300" height="225" src="readme-assets/low_density.png">   
 
 ## Variable description:
 
